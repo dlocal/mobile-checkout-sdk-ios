@@ -10,8 +10,8 @@ Allows integration of dLocal's checkout process
 
 Add the following to your `Podfile`:
 
-```
-pod 'DLMobileCheckoutSDK'
+```ruby
+pod 'DLMobileCheckoutSDK', '~> 0.1.5'
 ```
 
 # Getting started

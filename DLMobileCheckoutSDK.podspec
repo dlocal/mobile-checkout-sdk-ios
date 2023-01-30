@@ -1,10 +1,10 @@
 Pod::Spec.new do |spec|
     spec.name         = 'DLMobileCheckoutSDK'
-    spec.version      = '0.1.4'
+    spec.version      = '0.1.5'
     spec.authors      = { 'dLocal' => 'mobile-dev@dlocal.com' }
     spec.homepage     = "https://github.com/dlocal/mobile-checkout-sdk-ios/"
     spec.summary      = 'dLocal checkout experience'
-    spec.source       = { :http => "https://github.com/dlocal/mobile-checkout-sdk-ios/blob/#{spec.version.to_s}/DLMobileCheckoutSDK.zip?raw=true" }
+    spec.source       = { :http => "https://github.com/dlocal/mobile-checkout-sdk-ios/releases/download/v#{spec.version.to_s}/DLMobileCheckoutSDK-#{spec.version.to_s}.zip" }
     spec.license      = { :type => 'MIT', :file => 'LICENSE.md' }
     spec.platform     = :ios
     spec.ios.deployment_target = '13.0'
