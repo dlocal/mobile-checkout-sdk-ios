@@ -11,7 +11,7 @@ Allows integration of dLocal's checkout process
 Add the following to your `Podfile`:
 
 ```ruby
-pod 'DLMobileCheckoutSDK', '~> 0.1.5'
+pod 'DLMobileCheckoutSDK', '~> 0.1.6'
 ```
 
 # Getting started
@@ -153,9 +153,29 @@ open var primaryTextColor: UIColor {
 
 You can read more about dark mode support in SwiftLee's [Dark Mode: Adding support to your app in Swift](https://www.avanderlee.com/swift/dark-mode-support-ios/).
 
+# Localization
+
+The checkout experience is localized in *English*, *Spanish* and *Portuguese*. 
+
+Depending on what languages your app supports is how the Checkout UI will be localized:
+
+| Your App Supported Localizations | System Localization | Your App Localization | Checkout Localization | Comments |
+| --- | --- | --- | --- | --- |
+| EN, ES | EN | EN | EN | Normal scenario, all UI is in English to match system preference. |
+| EN, ES | ES | ES | ES | Normal scenario, all UI is in Spanish to match system preference. |
+| EN, ES | IT | EN | EN | In this case user's preferred language is Italian, but neither your app nor Checkout support it so language is defaulted to English. |
+| IT | IT | IT | EN | In this case user's preferred language is Italian, your app supports it so your app UI is shown in that language. Checkout UI does not support Italian so it defaults back to English. |
+| EN, ES | PT | EN | EN | While checkout supports Portuguese and user's preferred language is Portuguese, we continue showing in English to match the experience in your app. |
+
+In the last scenario, if you'd like Checkout UI to be shown in Portuguese to match system's language, set `Localized resources can be mixed = YES` in your `Info.plist`.
+
 # Objective-C Support
 
 In order to call our SDK from Objective-C code you'll need to include a compatibility Swift file which is provided separately. Please reach out to us if you're facing this scenario.
+
+# Landscape support
+
+The checkout interface supports Portrait orientation only.
 
 # Report Issues
 If you have a problem or find an issue with the SDK please contact us at [mobile-dev@dlocal.com](mailto:mobile-dev@dlocal.com)

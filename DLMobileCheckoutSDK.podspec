@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name         = 'DLMobileCheckoutSDK'
-    spec.version      = '0.1.5'
+    spec.version      = '0.1.6'
     spec.authors      = { 'dLocal' => 'mobile-dev@dlocal.com' }
     spec.homepage     = "https://github.com/dlocal/mobile-checkout-sdk-ios/"
     spec.summary      = 'dLocal checkout experience'
@@ -9,5 +9,5 @@ Pod::Spec.new do |spec|
     spec.platform     = :ios
     spec.ios.deployment_target = '13.0'
     spec.ios.vendored_frameworks = "DLMobileCheckoutSDK.xcframework"
-    spec.dependency "DLDirectSDK", "0.2.9"
+    spec.dependency "DLDirectSDK", "0.2.12"
 end
