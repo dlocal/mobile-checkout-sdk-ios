@@ -11,7 +11,7 @@ Allows integration of dLocal's checkout process
 Add the following to your `Podfile`:
 
 ```ruby
-pod 'DLMobileCheckoutSDK', '~> 0.1.6'
+pod 'DLMobileCheckoutSDK', '~> 0.1.7'
 ```
 
 # Getting started
@@ -176,6 +176,10 @@ In order to call our SDK from Objective-C code you'll need to include a compatib
 # Landscape support
 
 The checkout interface supports Portrait orientation only.
+
+# API Reference
+
+[View documentation](https://dlocal.github.io/mobile-checkout-sdk-ios/documentation/dlmobilecheckoutsdk/)
 
 # Report Issues
 If you have a problem or find an issue with the SDK please contact us at [mobile-dev@dlocal.com](mailto:mobile-dev@dlocal.com)
