@@ -11,7 +11,7 @@ Allows integration of dLocal's checkout process
 Add the following to your `Podfile`:
 
 ```ruby
-pod 'DLMobileCheckoutSDK', '~> 0.1.7'
+pod 'DLMobileCheckoutSDK', '~> 0.1.8'
 ```
 
 # Getting started
