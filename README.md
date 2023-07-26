@@ -8,11 +8,22 @@ Allows integration of dLocal's checkout process
 
 ## Installation
 
+### Cocoapods
+
 Add the following to your `Podfile`:
 
 ```ruby
-pod 'DLMobileCheckoutSDK', '~> 0.1.11'
+pod 'DLMobileCheckoutSDK', '~> 0.1.12'
 ```
+
+### Manual
+
+1. Download the latest release from [here](https://github.com/dlocal/mobile-checkout-sdk-ios/releases).
+2. Drag and drop the downloaded `DLMobileCheckoutSDK.xcframework` into the project.
+3. Go to your project configuration **General** tab and ensure that `Embed & Sign` is selected for `DLMobileCheckoutSDK`.
+4. `DLMobileCheckoutSDK` has a dependency to `DLDirectSDK` so you will have to manually download it as well. Look at the [podspec](https://github.com/dlocal/mobile-checkout-sdk-ios/blob/master/DLMobileCheckoutSDK.podspec) to understand what version of `DLDirectSDK` matches the version of `DLMobileCheckoutSDK` you are installing. Once you find the version, download it from [here](https://github.com/dlocal/dlocal-direct-ios-sdk/releases).
+5. Drag and drop the downloaded `DLDirectSDK.xcframework` into the project.
+6. Go to your project configuration General tab again and ensure that `Embed & Sign` is selected for `DLDirectSDK`.
 
 # Getting started
 
@@ -173,13 +184,35 @@ In the last scenario, if you'd like Checkout UI to be shown in Portuguese to mat
 
 In order to call our SDK from Objective-C code you'll need to include a compatibility Swift file which is provided separately. Please reach out to us if you're facing this scenario.
 
+# SwiftUI Support
+
+In order to call our SDK from a SwiftUI View, you'll need to wrap our Checkout form with a SwiftUI wrapper, calling 
+```swift
+DLMobileCheckout.getDLMobileCheckoutView
+```
+instead of 
+```swift
+DLMobileCheckout.getDLMobileCheckoutViewViewController
+```
+EXAMPLE: 
+```swift
+.sheet(isPresented: $showingCheckout) {
+                DLMobileCheckout.getDLMobileCheckoutView(
+                amount: 5000, 
+                currencyCode: "ARS", mainButtonTitle: "PAY", 
+                onSuccess: { result in
+                    print(result.cardToken)}, onError: { error in
+                        print(error)})
+            }
+```
+(See full example in DLMobileCheckoutSDKExampleSwiftUI project)
 # Landscape support
 
 The checkout interface supports Portrait orientation only.
 
 # API Reference
 
-[View API Reference for DLMobileCheckoutSDK v0.1.11](https://dlocal.github.io/mobile-checkout-sdk-ios/0.1.11/documentation/dlmobilecheckoutsdk).
+[View API Reference for DLMobileCheckoutSDK v0.1.12](https://dlocal.github.io/mobile-checkout-sdk-ios/0.1.12/documentation/dlmobilecheckoutsdk).
 
 You can view reference for previous versions [here](https://dlocal.github.io/mobile-checkout-sdk-ios/).
 
