@@ -13,7 +13,7 @@ Allows integration of dLocal's checkout process
 Add the following to your `Podfile`:
 
 ```ruby
-pod 'DLMobileCheckoutSDK', '~> 0.1.12'
+pod 'DLMobileCheckoutSDK', '~> 0.1.13'
 ```
 
 ### Manual
@@ -212,7 +212,7 @@ The checkout interface supports Portrait orientation only.
 
 # API Reference
 
-[View API Reference for DLMobileCheckoutSDK v0.1.12](https://dlocal.github.io/mobile-checkout-sdk-ios/0.1.12/documentation/dlmobilecheckoutsdk).
+[View API Reference for DLMobileCheckoutSDK v0.1.13](https://dlocal.github.io/mobile-checkout-sdk-ios/0.1.13/documentation/dlmobilecheckoutsdk).
 
 You can view reference for previous versions [here](https://dlocal.github.io/mobile-checkout-sdk-ios/).
 

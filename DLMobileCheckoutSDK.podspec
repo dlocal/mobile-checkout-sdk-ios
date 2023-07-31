@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name         = 'DLMobileCheckoutSDK'
-    spec.version      = '0.1.12'
+    spec.version      = '0.1.13'
     spec.authors      = { 'dLocal' => 'mobile-dev@dlocal.com' }
     spec.homepage     = "https://github.com/dlocal/mobile-checkout-sdk-ios/"
     spec.summary      = 'dLocal checkout experience'
