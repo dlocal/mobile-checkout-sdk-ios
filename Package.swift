@@ -16,8 +16,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "DLMobileCheckoutSDK",
-            url: "https://github.com/dlocal/mobile-checkout-sdk-ios/releases/download/v0.1.14/DLMobileCheckoutSDK-0.1.14.zip",
-            checksum: "d9e1bfe99eb5a536becc9890f1c9006d243c472d163101dba9a12979eae5a734"
+            url: "https://github.com/dlocal/mobile-checkout-sdk-ios/releases/download/v0.1.15/DLMobileCheckoutSDK-0.1.15.zip",
+            checksum: "12a6d7bf378d91306f24ceefc407c57ba628a0714272ad7cee2ca0fcb7574196"
         )
     ]
 )
