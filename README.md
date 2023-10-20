@@ -13,7 +13,7 @@ Allows integration of dLocal's checkout process
 Add the following to your `Podfile`:
 
 ```ruby
-pod 'DLMobileCheckoutSDK', '~> 0.1.17'
+pod 'DLMobileCheckoutSDK', '~> 1.0.0'
 ```
 
 ### Swift Package Manager
@@ -42,9 +42,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        DLMobileCheckout.configure(apiKey: "API KEY",
-                                   countryCode: "COUNTRY CODE",
-                                   allowInstallments: true)
+        DLMobileCheckout.initialize(apiKey: "API KEY",
+                                    countryCode: "COUNTRY CODE",
+                                    allowInstallments: true)
                                    
         return true
     }
@@ -60,9 +60,9 @@ You can find full list of country codes [here](https://documentation.dlocal.com/
 Use `allowInstallments` parameter to specify whether user will be able to select installments as part of the checkout process.
 
 ```swift
-DLMobileCheckout.configure(apiKey: "API KEY",
-                           countryCode: "COUNTRY CODE",
-                           allowInstallments: true) // defaults to `false` if not specified
+DLMobileCheckout.initialize(apiKey: "API KEY",
+                            countryCode: "COUNTRY CODE",
+                            allowInstallments: true) // defaults to `false` if not specified
 ```
 
 ## Testing the integration
@@ -70,9 +70,9 @@ DLMobileCheckout.configure(apiKey: "API KEY",
 Use `testMode` parameter to specify whether you are going to be doing testing with fake data or if you are going to be performing real transactions.
 
 ```swift
-DLMobileCheckout.configure(apiKey: "API KEY",
-                           countryCode: "COUNTRY CODE",
-                           testMode: true) // defaults to `false` if not specified
+DLMobileCheckout.initialize(apiKey: "API KEY",
+                            countryCode: "COUNTRY CODE",
+                            testMode: true) // defaults to `false` if not specified
 ```
 
 # Checkout
@@ -216,7 +216,7 @@ The checkout interface supports Portrait orientation only.
 
 # API Reference
 
-[View API Reference for DLMobileCheckoutSDK v0.1.17](https://dlocal.github.io/mobile-checkout-sdk-ios/0.1.17/documentation/dlmobilecheckoutsdk).
+[View API Reference for DLMobileCheckoutSDK v1.0.0](https://dlocal.github.io/mobile-checkout-sdk-ios/1.0.0/documentation/dlmobilecheckoutsdk).
 
 You can view reference for previous versions [here](https://dlocal.github.io/mobile-checkout-sdk-ios/).
 
