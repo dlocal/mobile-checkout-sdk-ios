@@ -13,7 +13,7 @@ Allows integration of dLocal's checkout process
 Add the following to your `Podfile`:
 
 ```ruby
-pod 'DLMobileCheckoutSDK', '~> 1.0.0'
+pod 'DLMobileCheckoutSDK', '~> 1.0.1'
 ```
 
 ### Swift Package Manager
@@ -42,9 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        DLMobileCheckout.initialize(apiKey: "API KEY",
-                                    countryCode: "COUNTRY CODE",
-                                    allowInstallments: true)
+        DLMobileCheckout.initialize(apiKey: "API KEY", allowInstallments: true)
                                    
         return true
     }
@@ -61,7 +59,6 @@ Use `allowInstallments` parameter to specify whether user will be able to select
 
 ```swift
 DLMobileCheckout.initialize(apiKey: "API KEY",
-                            countryCode: "COUNTRY CODE",
                             allowInstallments: true) // defaults to `false` if not specified
 ```
 
@@ -71,16 +68,16 @@ Use `testMode` parameter to specify whether you are going to be doing testing wi
 
 ```swift
 DLMobileCheckout.initialize(apiKey: "API KEY",
-                            countryCode: "COUNTRY CODE",
                             testMode: true) // defaults to `false` if not specified
 ```
 
 # Checkout
 
 ```swift
-let viewController = DLMobileCheckout.getDLMobileCheckoutViewController(
+let viewController = DLMobileCheckout.createFormViewController(
     amount: 500 /* amount to charge */,
     currencyCode: USD /* currency of the amount */,
+    countryCode: "UY" /* two letter country code */,
     mainButtonTitle: "Add Card" /* text to show in the main button */,
     onSuccess: { result in
         print("Card token successfully generated: \(result.cardToken) to charge \(result.totalAmount)")
@@ -108,9 +105,9 @@ if let viewController {
 You can customize the look and feel of the checkout interface as follows:
 
 ```swift
-class MyCheckoutTheme: DLMobileCheckoutSDKTheme {
+class MyCheckoutTheme: DLFormTheme {
     override var accentColor: UIColor { .blue }
-    override var textFieldBorderStyle: TextFieldBorderStyle { .bottomLine }
+    override var textFieldBorderStyle: DLBorderStyle { .bottomLine }
     
     // add other theme overrides here
 }
@@ -119,7 +116,7 @@ class MyCheckoutTheme: DLMobileCheckoutSDKTheme {
 All customization options:
 
 ```swift
-open var textFieldBorderStyle: TextFieldBorderStyle { .bottomLine }
+open var textFieldBorderStyle: DLBorderStyle { .bottomLine }
 
 // MARK: - Colors
 open var primaryTextColor: UIColor { .label }
@@ -141,7 +138,7 @@ open var footnote: UIFont { UIFont.preferredFont(forTextStyle: .footnote) }
 open var caption1: UIFont { UIFont.preferredFont(forTextStyle: .caption1) }
 open var caption2: UIFont { UIFont.preferredFont(forTextStyle: .caption2) }
 
-open var addCardButtonStyle: AddCardButtonStyle { .edgeToEdge }
+open var mainButtonStyle: DLButtonStyle { .edgeToEdge }
 ```
 
 ### Note about dark mode
@@ -192,22 +189,23 @@ In order to call our SDK from Objective-C code you'll need to include a compatib
 
 In order to call our SDK from a SwiftUI View, you'll need to wrap our Checkout form with a SwiftUI wrapper, calling 
 ```swift
-DLMobileCheckout.getDLMobileCheckoutView
+DLMobileCheckout.createFormView
 ```
 instead of 
 ```swift
-DLMobileCheckout.getDLMobileCheckoutViewViewController
+DLMobileCheckout.createFormViewController
 ```
 EXAMPLE: 
 ```swift
 .sheet(isPresented: $showingCheckout) {
-                DLMobileCheckout.getDLMobileCheckoutView(
-                amount: 5000, 
-                currencyCode: "ARS", mainButtonTitle: "PAY", 
-                onSuccess: { result in
-                    print(result.cardToken)}, onError: { error in
-                        print(error)})
-            }
+    DLMobileCheckout.createFormView(
+        amount: 5000, 
+        currencyCode: "ARS",
+        countryCode: "UY",
+        mainButtonTitle: "PAY", 
+        onSuccess: { result in print(result.cardToken) }, 
+        onError: { error in print(error) })
+}
 ```
 (See full example in DLMobileCheckoutSDKExampleSwiftUI project)
 # Landscape support
@@ -216,7 +214,7 @@ The checkout interface supports Portrait orientation only.
 
 # API Reference
 
-[View API Reference for DLMobileCheckoutSDK v1.0.0](https://dlocal.github.io/mobile-checkout-sdk-ios/1.0.0/documentation/dlmobilecheckoutsdk).
+[View API Reference for DLMobileCheckoutSDK v1.0.1](https://dlocal.github.io/mobile-checkout-sdk-ios/1.0.1/documentation/dlmobilecheckoutsdk).
 
 You can view reference for previous versions [here](https://dlocal.github.io/mobile-checkout-sdk-ios/).
 
